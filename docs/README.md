@@ -129,7 +129,24 @@ docker-compose -f docker-compose.initial.yml up --build -d
 
 ### solution
 
-> explain briefly your solution for this problem here
+> ## SQL Script for Database Restructuring
+
+The provided SQL script performs the following tasks:
+
+### 1. Table Creation
+
+- **User Table**: Defines a new user table to hold user-specific details.
+- **Home Table**: Sets up a home table for storing information about homes.
+- **User_Home_Relation Table**: Establishes a user_home_relation table to link users and homes.
+
+### 2. Data Population
+
+- **User and Home Tables**: Inserts unique records into the user and home tables, extracted from the original user_home table.
+- **User_Home_Relation Table**: Fills the user_home_relation table with relationships using the IDs from the newly created user and home tables.
+
+### 3. Cleanup
+
+- **Remove Obsolete Table**: Removes the obsolete user_home table once the data has been migrated and normalized.
 
 ## 2. React SPA
 
