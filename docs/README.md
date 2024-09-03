@@ -305,7 +305,44 @@ The provided SQL script performs the following tasks:
 
 ### solution
 
-> explain briefly your solution for this problem here
+## Backend Setup
+
+The backend setup is designed to fulfill key frontend requirements such as fetching user and home data and managing user-home relationships. Utilizing NestJS, a comprehensive framework for TypeScript applications, and TypeORM for ORM capabilities, this system ensures effective database management with MySQL.
+
+### API Endpoints
+
+- **`/user/find-all`**:
+  - **Method**: GET
+  - **Description**: Retrieves a list of all users from the database.
+
+- **`/home/find-by-user/{userId}`**:
+  - **Method**: GET
+  - **Description**: Returns homes associated with a specific user by `userId`.
+  - **Pagination**: Includes pagination, defaulting to 50 items per page, with adjustable page size via query parameters.
+
+- **`/user/find-by-home/{homeId}`**:
+  - **Method**: GET
+  - **Description**: Fetches users linked to a particular home identified by `homeId`.
+
+- **`/home/update-users`**:
+  - **Method**: PUT
+  - **Description**: Updates the users related to a given home. Accepts home ID and a list of user IDs to update the relationships in the database.
+  - **Idempotency**: Designed to ensure that repeated requests yield the same result without side effects.
+  - **Request Payload**:
+    ```json
+    {
+      "homeId": "{home identifier}",
+      "userIds": [list of user identifiers]
+    }
+    ```
+  - **Security**: Input is sanitized to protect against SQL injection and other security threats.
+
+### Additional Features
+
+- **Error Management**: Implements comprehensive error handling to provide informative feedback for invalid or failed requests.
+- **Data Validation**: Utilizes DTOs (Data Transfer Objects) to verify and enforce data integrity.
+- **Frontend Pagination**: Features a user-friendly pagination control on the "Homes for User" page, leveraging paginated responses from the `/home/find-by-user/{userId}` endpoint.
+
 
 ## Submission Guidelines
 
