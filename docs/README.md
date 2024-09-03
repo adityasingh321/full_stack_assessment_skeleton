@@ -131,23 +131,23 @@ docker-compose -f docker-compose.initial.yml up --build -d
 
 The solution involves restructuring the existing `user_home` table into three distinct tables:
 
-- **User Table**: This table will store attributes related to users.
-- **Home Table**: This table will maintain attributes specific to homes.
-- **User_Home_Relation Table**: This table will represent the many-to-many relationship between users and homes.
+- **user Table**: This table will store attributes related to users.
+- **home Table**: This table will maintain attributes specific to homes.
+- **user_home_map Table**: This table will represent the many-to-many relationship between users and homes.
 
 ### SQL Script for Database Restructuring
 The provided SQL script performs the following tasks:
 
 ### 1. Table Creation
 
-- **User Table**: Defines a new user table to hold user-specific details.
-- **Home Table**: Sets up a home table for storing information about homes.
-- **User_Home_Relation Table**: Establishes a user_home_relation table to link users and homes.
+- **user Table**: Defines a new user table to hold user-specific details.
+- **home Table**: Sets up a home table for storing information about homes.
+- **user_home_map Table**: Establishes a user_home_relation table to link users and homes.
 
 ### 2. Data Population
 
-- **User and Home Tables**: Inserts unique records into the user and home tables, extracted from the original user_home table.
-- **User_Home_Relation Table**: Fills the user_home_relation table with relationships using the IDs from the newly created user and home tables.
+- **user and home Tables**: Inserts unique records into the user and home tables, extracted from the original user_home table.
+- **user_home_map Table**: Fills the user_home_relation table with relationships using the IDs from the newly created user and home tables.
 
 ### 3. Cleanup
 
