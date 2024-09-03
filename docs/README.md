@@ -128,9 +128,16 @@ docker-compose -f docker-compose.initial.yml up --build -d
   - instead you directly write SQL script, that makes all the changes you want to the DB
 
 ### solution
+>
+> ### Solution Overview
 
-> ## SQL Script for Database Restructuring
+The solution involves restructuring the existing `user_home` table into three distinct tables:
 
+- **User Table**: This table will store attributes related to users.
+- **Home Table**: This table will maintain attributes specific to homes.
+- **User_Home_Relation Table**: This table will represent the many-to-many relationship between users and homes.
+
+### SQL Script for Database Restructuring
 The provided SQL script performs the following tasks:
 
 ### 1. Table Creation
