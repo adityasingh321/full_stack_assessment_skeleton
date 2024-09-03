@@ -128,8 +128,6 @@ docker-compose -f docker-compose.initial.yml up --build -d
   - instead you directly write SQL script, that makes all the changes you want to the DB
 
 ### solution
->
-> ### Solution Overview
 
 The solution involves restructuring the existing `user_home` table into three distinct tables:
 
@@ -244,7 +242,15 @@ The provided SQL script performs the following tasks:
 
 ### solution
 
-> explain briefly your solution for this problem here
+To address the needs of displaying and managing user-home associations, I developed the following solution:
+
+- **Homes for User Page**: Implemented a dropdown for user selection, which dynamically updates and displays their associated homes in a responsive card layout.
+
+- **Edit User**: Added functionality where each home card includes an "Edit User" button. Clicking this opens a modal that allows modifications to user associations.
+
+- **Edit User Modal**: Designed a modal with checkboxes reflecting current user associations. Users can update associations, and changes are saved to the database, or discarded if canceled.
+
+- **Data Fetching**: Used RTK Query to handle data fetching, complete with error handling to ensure a smooth user experience.
 
 ## 3. Backend API development on Node
 
